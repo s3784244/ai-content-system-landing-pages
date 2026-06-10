@@ -2,7 +2,7 @@
 title: "Claude Setup Starter Guide"
 headline: "Set Up Claude and Start Using It Like a Personal AI Assistant"
 subtitle: "A beginner-friendly guide to help you create your Claude account, set up projects, add useful context, and start using Claude for everyday work."
-pdfUrl: "https://drive.google.com/file/d/YOUR-PDF-LINK-HERE/view?usp=drivesdk"
+pdfUrl: "https://drive.google.com/drive/folders/1BjjXjRCE3iiaTDf-_hDHaqWEA1rp1vUy"
 valueProps:
   - "Create and set up your Claude account"
   - "Organise your work using Claude Projects"
