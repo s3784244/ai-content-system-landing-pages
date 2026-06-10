@@ -187,20 +187,30 @@ const { title, headline, subtitle, pdfUrl, valueProps, ctaText, pages } = entry.
     </div>
   </div>
 
-  <script define:vars={{ pdfUrl }}>
+  <script define:vars={{ pdfUrl, title }}>
     document.getElementById('leadForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
-      btn.textContent = 'Preparing...';
+      btn.textContent = 'Processing...';
 
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
 
       try {
-        // For now, just redirect to PDF
-        // Later, this will also save to Notion
-        window.location.href = pdfUrl;
+        const res = await fetch('/api/submit-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, resource: title }),
+        });
+
+        if (res.ok) {
+          window.location.href = pdfUrl;
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Try again';
+          alert('Failed to save. Please try again.');
+        }
       } catch (error) {
         btn.disabled = false;
         btn.textContent = 'Try again';
