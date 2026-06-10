@@ -1,20 +1,17 @@
 ---
-
 title: "Claude Setup Starter Guide"
 headline: "Set Up Claude and Start Using It Like a Personal AI Assistant"
 subtitle: "A beginner-friendly guide to help you create your Claude account, set up projects, add useful context, and start using Claude for everyday work."
 pdfUrl: "https://drive.google.com/file/d/YOUR-PDF-LINK-HERE/view?usp=drivesdk"
 valueProps:
-
-* "Create and set up your Claude account"
-* "Organise your work using Claude Projects"
-* "Add custom instructions so Claude understands your needs"
-* "Start using Claude for writing, research, planning, and document analysis"
-  ctaText: "Get the Free Claude Setup Guide"
-  previewDescription: "A simple step-by-step guide to setting up Claude and using it effectively for work, study, and productivity."
-  pages: 6
-  type: "setup-guide"
-
+  - "Create and set up your Claude account"
+  - "Organise your work using Claude Projects"
+  - "Add custom instructions so Claude understands your needs"
+  - "Start using Claude for writing, research, planning, and document analysis"
+ctaText: "Get the Free Claude Setup Guide"
+previewDescription: "A simple step-by-step guide to setting up Claude and using it effectively for work, study, and productivity."
+pages: 6
+type: "guide"
 ---
 
 ## What's Inside

@@ -1,19 +1,37 @@
 ---
-title: "Test Guide"
-headline: "Your Test Guide Is Ready"
-subtitle: "A quick test to make sure your landing page system works."
-pdfUrl: "https://drive.google.com/file/d/183WgGawi7k9LWPB8KhyT_XGqGiJABs_D/view?usp=drivesdk"
+title: "Lead Magnet System Test Guide"
+headline: "Verify Your Landing Pages & Lead Capture Are Working"
+subtitle: "Test the complete lead capture flow, confirm leads appear in Notion, and verify PDF delivery. Takes 5 minutes."
+pdfUrl: "https://drive.google.com/file/d/1serxXcxX6Y-2tasqXock2siez1k262_-/view?usp=drivesdk"
 valueProps:
-  - "Confirms your setup works"
-  - "Tests the lead capture flow"
-  - "Takes 30 seconds"
-  - "100% free"
-ctaText: "Get the Free Guide"
-previewDescription: "A test guide to verify your landing page setup."
-pages: 1
-type: "guide"
+  - "Test landing page display and styling"
+  - "Verify form submission captures leads"
+  - "Confirm Notion database integration works"
+  - "Validate PDF download functionality"
+ctaText: "Get the Free Test Guide"
+previewDescription: "5-minute verification guide to test your lead magnet system end-to-end."
+pages: 3
+type: "how-to-guide"
 ---
 
 ## What's Inside
 
-Test resource to verify your landing pages work. Delete this file once confirmed.
+This guide walks you through testing your complete lead magnet system. You'll verify that:
+
+- **Landing pages load correctly** with all styling and content
+- **Forms submit properly** and capture name and email
+- **Leads save to Notion** automatically when the form is submitted
+- **PDF downloads work** and redirect to Google Drive
+
+## Who This Is For
+
+- **Content creators** who just set up their landing pages
+- **Anyone testing** a new lead capture system
+- **Teams verifying** their Notion + Vercel integration
+- **Creators ready** to launch their first lead magnet
+
+## The Complete Test
+
+Once you submit the form on this page, check your Notion Lead Captures database. Your test entry should appear within 2-3 seconds. This confirms your entire pipeline is working end-to-end.
+
+If everything works, your system is ready to capture real leads. Delete this test guide and start creating valuable lead magnets for your audience.
