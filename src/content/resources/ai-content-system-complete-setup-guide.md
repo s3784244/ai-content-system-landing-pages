@@ -11,7 +11,7 @@ valueProps:
 ctaText: "Get the Free Setup Guide"
 previewDescription: "Complete setup guide for AI Content System — transcripts, image generation, Notion pipeline configuration, and troubleshooting."
 pages: 4
-type: "setup-guide"
+type: "guide"
 ---
 
 ## What's Inside
