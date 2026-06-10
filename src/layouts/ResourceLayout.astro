@@ -138,13 +138,13 @@ const badge = `Free ${pages}-Page ${typeLabel}`;
         @apply text-gray-700 text-lg leading-relaxed mb-6;
       }
       :global(.prose ul) {
-        @apply space-y-3 mb-6;
+        @apply space-y-4 mb-6 list-none pl-0;
       }
       :global(.prose li) {
-        @apply text-gray-700 text-lg flex items-start;
+        @apply text-gray-700 text-lg ml-0 pl-8 relative;
       }
       :global(.prose li::before) {
-        @apply text-accent font-bold mr-3 flex-shrink-0;
+        @apply absolute left-0 top-1 text-accent font-bold;
         content: "→";
       }
       :global(.prose strong) {
