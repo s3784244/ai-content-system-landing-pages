@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const resources = await getCollection('resources');
+  return resources.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: any;
+}
+
+const { entry } = Astro.props;
+const { title, headline, subtitle, pdfUrl, valueProps, ctaText, pages } = entry.data;
+---
+
+<Layout title={title}>
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .hero {
+      margin-bottom: 60px;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+    .subtitle {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .value-props {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .value-props h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+    .value-props ul {
+      list-style: none;
+    }
+    .value-props li {
+      padding: 12px 0;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: flex-start;
+    }
+    .value-props li:last-child {
+      border-bottom: none;
+    }
+    .value-props li::before {
+      content: "✓";
+      margin-right: 12px;
+      color: #4CAF50;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .form-section {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 40px;
+    }
+    .form-section h3 {
+      font-size: 20px;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #4CAF50;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .pages-info {
+      font-size: 12px;
+      color: #999;
+      margin-top: 12px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #4CAF50;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <div class="container">
+    <a href="/" class="back-link">← Back to resources</a>
+
+    <div class="hero">
+      <h1>{headline}</h1>
+      <p class="subtitle">{subtitle}</p>
+    </div>
+
+    <div class="content-grid">
+      <div>
+        <div class="value-props">
+          <h3>What You'll Get</h3>
+          <ul>
+            {valueProps.map(prop => (
+              <li>{prop}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>{ctaText}</h3>
+        <form id="leadForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <button type="submit" id="submitBtn">{ctaText}</button>
+          <div class="pages-info">{pages} page{pages !== 1 ? 's' : ''}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ pdfUrl }}>
+    document.getElementById('leadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Preparing...';
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      try {
+        // For now, just redirect to PDF
+        // Later, this will also save to Notion
+        window.location.href = pdfUrl;
+      } catch (error) {
+        btn.disabled = false;
+        btn.textContent = 'Try again';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+</Layout>
